@@ -5,7 +5,7 @@
   height: 270px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  margin: 220px auto 80px;
+  margin: 320px auto 100px;
   top: 0;
   background-color: #d9534f; /* Warm romantic red */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -256,7 +256,7 @@ body {
 
 .envlope-wrapper {
   position: relative;
-  min-height: 1240px;
+  min-height: 1450px;
   overflow: hidden;
 }
 
@@ -274,13 +274,13 @@ body {
 }
 
 .photo-left {
-  left: clamp(16px, 8vw, 130px);
+  left: clamp(48px, 14vw, 240px);
   top: 82px;
   animation: floatLeft 6s ease-in-out infinite;
 }
 
 .photo-right {
-  right: clamp(16px, 8vw, 130px);
+  right: clamp(48px, 14vw, 240px);
   top: 82px;
   animation: floatRight 7s ease-in-out infinite;
 }
@@ -302,7 +302,7 @@ body {
   position: relative;
   width: min(720px, calc(100vw - 32px));
   height: 560px;
-  margin: 210px auto 0;
+  margin: 310px auto 0;
   pointer-events: none;
   z-index: 1;
 }
@@ -427,7 +427,7 @@ body {
 .beauty-caption {
   position: absolute;
   left: 50%;
-  bottom: -126px;
+  bottom: -170px;
   width: min(680px, calc(100vw - 36px));
   transform: translateX(-50%);
   margin: 0;
@@ -493,7 +493,7 @@ body {
   #envelope {
     width: 340px;
     height: 240px;
-    margin: 230px auto 80px;
+    margin: 310px auto 90px;
     top: 0;
   }
 
@@ -534,7 +534,7 @@ body {
   }
 
   .envlope-wrapper {
-    min-height: 1280px;
+    min-height: 1460px;
   }
 
   .floating-photo {
@@ -544,12 +544,12 @@ body {
   }
 
   .photo-left {
-    left: 12px;
+    left: 42px;
     top: 64px;
   }
 
   .photo-right {
-    right: 12px;
+    right: 42px;
     top: 64px;
   }
 
@@ -563,7 +563,7 @@ body {
   .beauty-orbit {
     width: min(390px, calc(100vw - 16px));
     height: 520px;
-    margin-top: 250px;
+    margin-top: 340px;
   }
 
   .person-frame {
@@ -639,7 +639,7 @@ body {
   }
 
   .beauty-caption {
-    bottom: -138px;
+    bottom: -180px;
     font-size: 1.35rem;
   }
 }
