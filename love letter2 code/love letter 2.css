@@ -1,0 +1,411 @@
+#envelope {
+  position: relative;
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  height: 270px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 235px;
+  background-color: #d9534f; /* Warm romantic red */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 122px solid transparent;
+  /* a little smaller */
+  border-top: 148px solid #d9534f; /* Same romantic red */
+  /* a little larger */
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.pocket {
+  border-left: 200px solid #f5a3a2; /* Soft pinkish red for the pocket */
+  border-right: 200px solid #f5a3a2;
+  border-bottom: 135px solid #ff6f61; /* Lighter romantic red */
+  border-top: 135px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.letter {
+  position: relative;
+  background-color: #fff;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 88%;
+  top: 6%;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  font-family: "Dancing Script", cursive;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+  padding: 14px 18px;
+}
+
+.letter:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.words {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  color: #7a2f45;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.words.line1 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.words.line2 {
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.words.line3 {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.words.line4 {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  transition: transform 0.55s ease, z-index 0s 0.55s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-145px);
+  transition: transform 0.55s 0.6s ease, z-index 0s 1.15s;
+  z-index: 6;
+}
+
+.hearts {
+  position: absolute;
+  top: 135px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  transition: z-index 0s 0.55s;
+}
+
+.open .hearts {
+  transition: z-index 0s 1.15s;
+  z-index: 7;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #e60073; /* Deep romantic pink */
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  pointer-events: none;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .heart {
+  opacity: 0;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 1.3s;
+  animation-delay: 1.3s;
+}
+
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: -600px;
+  }
+}
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: -600px;
+  }
+}
+@-webkit-keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+body {
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #fff7fb 28%,
+    #f0e6f6 72%,
+    #f0e6f6 100%
+  );
+  background-size: 100% 160%;
+  animation: softPageGlow 12s ease-in-out infinite alternate;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.envlope-wrapper {
+  position: relative;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.floating-photo {
+  position: absolute;
+  width: 210px;
+  max-width: 34vw;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(122, 47, 69, 0.18);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.photo-left {
+  left: clamp(16px, 8vw, 130px);
+  top: 82px;
+  animation: floatLeft 6s ease-in-out infinite;
+}
+
+.photo-right {
+  right: clamp(16px, 8vw, 130px);
+  top: 82px;
+  animation: floatRight 7s ease-in-out infinite;
+}
+
+.hands-art {
+  position: absolute;
+  left: 50%;
+  top: 64px;
+  width: min(350px, 36vw);
+  transform: translateX(-50%);
+  mix-blend-mode: multiply;
+  opacity: 0.78;
+  pointer-events: none;
+  z-index: 0;
+  animation: handFloat 8s ease-in-out infinite;
+}
+
+@keyframes softPageGlow {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes floatLeft {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-7deg);
+  }
+  50% {
+    transform: translate(10px, -18px) rotate(-3deg);
+  }
+}
+
+@keyframes floatRight {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(6deg);
+  }
+  50% {
+    transform: translate(-12px, 16px) rotate(2deg);
+  }
+}
+
+@keyframes handFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) scale(1.02);
+  }
+}
+
+@media (max-width: 440px) {
+  #envelope {
+    width: 340px;
+    height: 240px;
+    top: 260px;
+  }
+
+  .flap {
+    border-left-width: 170px;
+    border-right-width: 170px;
+    border-bottom-width: 108px;
+    border-top-width: 132px;
+  }
+
+  .pocket {
+    border-left-width: 170px;
+    border-right-width: 170px;
+    border-bottom-width: 120px;
+    border-top-width: 120px;
+  }
+
+  .letter {
+    padding: 12px 14px;
+  }
+
+  .words.line1 {
+    font-size: 0.82rem;
+  }
+
+  .words.line2,
+  .words.line3,
+  .words.line4 {
+    font-size: 0.86rem;
+  }
+
+  .open .letter {
+    transform: translateY(-130px);
+  }
+
+  .hearts {
+    top: 120px;
+  }
+
+  .envlope-wrapper {
+    min-height: 690px;
+  }
+
+  .floating-photo {
+    width: 145px;
+    max-width: 42vw;
+    border-radius: 14px;
+  }
+
+  .photo-left {
+    left: 12px;
+    top: 64px;
+  }
+
+  .photo-right {
+    right: 12px;
+    top: 64px;
+  }
+
+  .hands-art {
+    top: 190px;
+    width: 240px;
+    max-width: 70vw;
+    opacity: 0.72;
+  }
+}
+
